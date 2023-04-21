@@ -1,0 +1,36 @@
+.general {
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 30% 1fr 100px;
+    grid-template-areas: 
+    "nav nav nav nav nav nav nav nav nav nav nav nav"
+    "main main main main main main main main main aside aside aside"
+    "footer footer footer footer footer footer footer footer footer footer footer footer";
+
+}
+
+.lBar {
+    grid-column-start: "aside";
+    grid-column-end: "aside";
+    background-color: aqua;
+}
+
+.sBar {
+    grid-column-start: "nav";
+    grid-column-end: "nav";
+    background-color: blueviolet;
+}
+
+.content {
+    grid-column-start: "main";
+    grid-column-end: "main";
+    background-color: beige;
+}
+
+.fPage {
+    grid-column-start: "footer";
+    grid-column-end: "footer";
+    background-color: brown;
+}
+
