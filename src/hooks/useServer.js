@@ -6,8 +6,12 @@ function useServer() {
     const { token, setUser } = useAuth()
 
     const handleResponse = ({ data, loading, error }) => {
-        if (data?.status && data?.data?.token) { 
-            setUser({...data})
+        if (data.data?.email) { 
+            setUser({ user: data.data })
+        }
+
+        if (data.data?.token) { 
+            setUser({ token: data.data.token })
         }
 
         if (error && error.message === "Wrong email or password")  {
@@ -22,10 +26,10 @@ function useServer() {
     }
 
     return {
-        get: ({ url }) => httpService({ url, method: 'GET', token }),
+        get: ({ url }) => httpService({ url, method: 'GET', token }).then(handleResponse),
         post: ({ url, body }) => httpService({ url, method: 'POST', token, body }).then(handleResponse),
         put: ({ url, body }) => httpService({ url, method: 'PUT', token, body }).then(handleResponse),
-        delete: ({ url }) => httpService({ url, method: 'DELETE', token })
+        delete: ({ url }) => httpService({ url, method: 'DELETE', token }).then(handleResponse)
     }
 }
 

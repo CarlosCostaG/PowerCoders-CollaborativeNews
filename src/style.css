@@ -1,0 +1,48 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    background-color: #1a1a1b;
+    color: white;
+    height: 60px;
+    font-size: 1.2rem;
+    padding: 0 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .navbar a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+  }
+  
+  .navbar a:hover {
+    text-decoration: underline;
+  }
+  
+  .tittle {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 20px 0;
+  }
+  
+  .routes {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  
+  .routes a {
+    color: #1a1a1b;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .routes a:hover {
+    background-color: #1a1a1b;
+    color: white;
+  }
+  

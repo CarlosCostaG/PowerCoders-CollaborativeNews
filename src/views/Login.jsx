@@ -3,16 +3,16 @@ import useServer from '../hooks/useServer.js'
 
 function Login() {
 
-  const { post } = useServer()
+  const { post, get } = useServer()
   const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
     const credentials = Object.fromEntries(new FormData(e.target))
-    const { data } = await post({ url: '/login', body: credentials })
-    console.log(data)
-    if (data) return navigate('/')
+    const login = await post({ url: '/login', body: credentials })
+    const usr = login &&  await get({ url: '/profile' })
+    if (usr) return navigate('/')
   }
 
   return (

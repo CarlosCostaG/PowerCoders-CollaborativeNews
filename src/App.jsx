@@ -4,14 +4,19 @@ import Navbar from "./components/Navbar"
 // Vista principal de pagina
 import Homepage from "./views/Homepage"
 import Login from "./views/Login"
+import "./style.css"
+import useAuth from "./hooks/useAuth"
 
 
 function App() {
+
+  const {isAuthenticated} = useAuth()
   return (
     <>
     <Navbar />
     <h1 className="tittle">Proyecto Creado</h1>
-    <Routes>
+    <div>{JSON.stringify({isAuthenticated})}</div>
+    <Routes className="routes">
       <Route path="/" element= {<Homepage/>}/>
       <Route path="/login" element= {<Login/>}/>
 

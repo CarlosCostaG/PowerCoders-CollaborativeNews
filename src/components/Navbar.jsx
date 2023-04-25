@@ -5,11 +5,12 @@ import useAuth from "../hooks/useAuth"
 
 // Styles
 import styles from './Navbar.module.css'
+import "../style.css"
 
 function Navbar() {
   const { isAuthenticated, logout } = useAuth()
 
-  return <nav className={styles.mainNav}>
+  return <nav className="navbar">
     <NavLink to="/" 
       className={styles.mainNav__a}
     >Inicio</NavLink>
