@@ -1,23 +1,41 @@
-import { NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom";
 
 // Custom Hooks
-import useAuth from "../hooks/useAuth"
+import useAuth from "../hooks/useAuth";
 
 // Styles
-import styles from './Navbar.module.css'
-import "../style.css"
+import styles from "./Navbar.module.css";
+import "../style.css";
 
 function Navbar() {
-  const { isAuthenticated, logout } = useAuth()
+  const { isAuthenticated, logout } = useAuth();
 
-  return <nav className="navbar">
-    <NavLink to="/" 
-      className={styles.mainNav__a}
-    >Inicio</NavLink>
-    {isAuthenticated && <NavLink to="/todos" className={styles.mainNav__a}>ToDos</NavLink>}
-    {isAuthenticated ? <NavLink to="/login" className={styles.mainNav__a} onClick={logout}>Cerrar Sesión</NavLink> : <NavLink to="/login" className={styles.mainNav__a}>Inicio Sesión</NavLink>}
-    
-  </nav>
+  return (
+    <nav className="navbar">
+      <NavLink to="/" className={styles.mainNav__a}>
+        Inicio
+      </NavLink>
+      {isAuthenticated && (
+        <NavLink to="/send" className={styles.mainNav__a}>
+          Publicar
+        </NavLink>
+      )}
+      {isAuthenticated && (
+        <NavLink to="/delete" className={styles.mainNav__a}>
+          Borrar
+        </NavLink>
+      )}
+      {isAuthenticated ? (
+        <NavLink to="/login" className={styles.mainNav__a} onClick={logout}>
+          Cerrar Sesión
+        </NavLink>
+      ) : (
+        <NavLink to="/login" className={styles.mainNav__a}>
+          Inicio Sesión
+        </NavLink>
+      )}
+    </nav>
+  );
 }
 
-export default Navbar
+export default Navbar;

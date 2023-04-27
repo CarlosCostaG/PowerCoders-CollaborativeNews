@@ -1,22 +1,33 @@
 import { useNavigate } from "react-router-dom";
 import useServer from "../hooks/useServer.js";
 
-function Login() {
-  const { post, get } = useServer();
+function Register() {
+  const { post } = useServer();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const credentials = Object.fromEntries(new FormData(e.target));
-    const login = await post({ url: "/login", body: credentials });
-    const usr = login && (await get({ url: "/profile" }));
-    if (usr) return navigate("/");
+    const userRegistration = new FormData(e.target);
+    const register = await post({ url: "/register", body: userRegistration, hasImage: true });
+    if (register) return navigate("/login");
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <div>
+        <div>
+          <label htmlFor="username">Username</label>
+          <input
+            id="username"
+            name="username"
+            type="text"
+            autoComplete="username"
+            required
+            placeholder="@me"
+          />
+        </div>
+
         <div>
           <label htmlFor="email">Email</label>
           <input
@@ -40,6 +51,11 @@ function Login() {
             placeholder="123456"
           />
         </div>
+
+        <div>
+            <label htmlFor="avatar">Avatar</label>
+            <input type="file" name="avatar" id="avatar" />
+        </div>
       </div>
 
       <div>
@@ -49,4 +65,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Register;
