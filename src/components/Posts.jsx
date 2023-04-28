@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "../styles/post-style.css";
+import { apiURL } from "../config";
 
 function Posts({ post, deletePost, checkButton }) {
   const deleteButtonHandler = (e) => {
@@ -22,6 +23,7 @@ function Posts({ post, deletePost, checkButton }) {
     <li className="post-container">
       <div className="post-content">
         <Link className="post-title">{post.title}</Link>
+        <img src={`${apiURL}/photos/${post.photo}`} alt="" />
         <p>{post.content}</p>
         <p>{post.theme}</p>
         <div className="post-buttons">

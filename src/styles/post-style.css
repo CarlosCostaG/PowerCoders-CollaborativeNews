@@ -4,14 +4,20 @@ li {
     border: 1px solid #d9d9d9;
     padding: 16px;
     margin-bottom: 16px;
-    border-radius: 4px;
-    margin-right: 70px;
+    border-radius: 10px;
+    margin-left: 25%;
+    margin-right: 25%;
   }
   
   /* li:hover {
     background-color: #f9f9f9;
   } */
   
+  img {
+   width: 80%;
+   text-align: center;
+  }
+
   li p {
     margin: 8px 0;
   }

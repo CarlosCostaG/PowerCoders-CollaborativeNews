@@ -1,16 +1,20 @@
 import React, { useState } from "react";
 import useServer from "../hooks/useServer";
 import "./RedditForm.css";
+import { useNavigate } from "react-router-dom";
 
 function RedditForm() {
   const { post } = useServer();
+  const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const formPost = Object.fromEntries(new FormData(e.target));
+    const formPost = new FormData(e.target);
     console.log(formPost);
-    const response = await post({ url: "/news", body: formPost });
+    const response = await post({ url: "/news", body: formPost, hasImage: true });
+    console.log(response)
+    if (response) return navigate("/");  
   };
 
   return (
@@ -21,6 +25,11 @@ function RedditForm() {
 
       <label htmlFor="content">Contenido:</label>
       <textarea id="content" name="content" />
+
+      <div>
+          <label htmlFor="photo">Inserta lo que te pegue la gana :v</label>
+          <input type="file" name="photo" id="photo" />
+      </div>
 
       <label htmlFor="theme">
           <input
