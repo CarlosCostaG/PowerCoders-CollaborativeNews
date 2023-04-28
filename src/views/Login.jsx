@@ -1,20 +1,30 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import useServer from "../hooks/useServer.js";
+import useAuth from "../hooks/useAuth.js";
+import { useEffect } from "react";
 
 function Login() {
   const { post, get } = useServer();
+  const { token } = useAuth()
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const credentials = Object.fromEntries(new FormData(e.target));
-    const login = await post({ url: "/login", body: credentials });
-    const usr = login && (await get({ url: "/profile" }));
-    if (usr) return navigate("/");
+    await post({ url: "/login", body: credentials });
   };
+  
+  useEffect(() => {
+    if (!token) return;
+
+    const usr = get({ url: "/profile" });
+    if (usr) return navigate("/");
+
+  }, [token])
 
   return (
+    <>
     <form onSubmit={handleSubmit}>
       <div>
         <div>
@@ -46,6 +56,12 @@ function Login() {
         <button type="submit"> Iniciar Sesión </button>
       </div>
     </form>
+
+    <div>
+      <p>¿Aun no tienes cuenta?</p>
+      <Link to='/register'>Registrate</Link>
+    </div>
+    </>
   );
 }
 

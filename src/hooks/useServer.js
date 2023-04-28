@@ -8,7 +8,6 @@ function useServer() {
   const handleResponse = ({ data, loading, error }) => {
     if (data.data?.id) {
       setUser({ user: data.data });
-      console.log({ user: data.data });
     }
 
     if (data.data?.token) {

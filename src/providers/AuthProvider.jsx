@@ -32,7 +32,7 @@ const AuthProvider = ({ children }) => {
       setUser: setUserHandler,
       logout: logoutHandler,
     };
-  });
+  }, [currentUser]);
 
   return (
     <AuthContext.Provider value={authValues}>{children}</AuthContext.Provider>

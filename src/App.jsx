@@ -11,13 +11,15 @@ import RedditForm from "./components/send";
 // import RedDelete from "./components/delete";
 
 function App() {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, user } = useAuth();
   return (
     <>
       <Navbar />
 
       <h1 className="tittle">InsightHub</h1>
       <div>{JSON.stringify({ isAuthenticated })}</div>
+
+      {isAuthenticated && <img src={`https://noticias.backends.hackaboss.com/avatars/${user.avatar}`} />}
 
       <Routes className="routes">
         <Route path="/" element={<Homepage />} />

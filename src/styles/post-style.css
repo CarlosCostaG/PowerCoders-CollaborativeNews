@@ -1,0 +1,73 @@
+li {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #d9d9d9;
+    padding: 16px;
+    margin-bottom: 16px;
+    border-radius: 4px;
+    margin-right: 70px;
+  }
+  
+  /* li:hover {
+    background-color: #f9f9f9;
+  } */
+  
+  li p {
+    margin: 8px 0;
+  }
+  
+  button {
+    background-color: #ff4500;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  button:hover {
+    background-color: #ff5722;
+  }
+  
+  a {
+    color: #ab0d84;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  .post-buttons button {
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+    padding: 5px 10px;
+  }
+  
+  .post-buttons button:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .like-button {
+    color: #6cb370;
+  }
+  
+  .dislike-button {
+    color: #ff5a5f;
+  }
+  
+  .edit-button {
+    color: #0079d3;
+  }
+  
+  .delete-button {
+    color: #ff4500;
+  }
+  
+  .post-buttons i {
+    margin-right: 5px;
+  }

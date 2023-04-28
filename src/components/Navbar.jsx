@@ -4,8 +4,7 @@ import { NavLink } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 
 // Styles
-import styles from "./Navbar.module.css";
-import "../style.css";
+import styles from "../styles/Navbar.module.css";
 
 function Navbar() {
   const { isAuthenticated, logout } = useAuth();
@@ -20,11 +19,7 @@ function Navbar() {
           Publicar
         </NavLink>
       )}
-      {isAuthenticated && (
-        <NavLink to="/delete" className={styles.mainNav__a}>
-          Borrar
-        </NavLink>
-      )}
+
       {isAuthenticated ? (
         <NavLink to="/login" className={styles.mainNav__a} onClick={logout}>
           Cerrar Sesión

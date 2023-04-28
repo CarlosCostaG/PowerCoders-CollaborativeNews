@@ -17,36 +17,30 @@ function Homepage() {
   }, []);
 
   useEffect(() => {
-    console.log(posts)
-  }, [posts])
-
+    console.log(posts);
+  }, [posts]);
 
   const deletePostHandler = async (id) => {
-    console.log(id);
-    const { data } = await destroy({ url: `/news/${id}` });
-    if (data.deleted) {
-      const newList = todos.filter((todo) => todo.id !== id);
-      setPosts(newList);
+      const { data } = await destroy({ url: `/news/${id}` });
+      if (data.status === 'ok') {
+        const newList = posts.filter((post) => post.id !== id);
+        setPosts(newList);
     }
   };
-
 
   const inputChangeHandler = ({ target }) => {
     setInputValue(target.value);
   };
 
-
   return (
     <>
-      {posts && <ul>
+      {posts && (
+        <ul>
           {posts.map((post) => (
-            <Posts
-              key={post.id}
-              post={post}
-              deletePost={deletePostHandler}
-            />
+            <Posts key={post.id} post={post} deletePost={deletePostHandler} />
           ))}
-        </ul>}
+        </ul>
+      )}
     </>
   );
 }
