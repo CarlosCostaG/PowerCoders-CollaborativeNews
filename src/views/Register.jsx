@@ -2,15 +2,15 @@ import { useNavigate } from "react-router-dom";
 import useServer from "../hooks/useServer.js";
 
 function Register() {
-  const { post } = useServer();
-  const navigate = useNavigate();
+  const { post } = useServer();  // Se utiliza el hook useServer para hacer solicitudes al servidor
+  const navigate = useNavigate(); // Se utiliza el hook useNavigate para cambiar la ruta del navegador
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async (e) => { // Función que se ejecuta cuando se envía el formulario
+    e.preventDefault(); // Se previene la acción por defecto de enviar el formulario
 
-    const userRegistration = new FormData(e.target);
-    const register = await post({ url: "/register", body: userRegistration, hasImage: true });
-    if (register) return navigate("/login");
+    const userRegistration = new FormData(e.target); // Se crea un nuevo objeto FormData con los datos del formulario
+    const register = await post({ url: "/register", body: userRegistration, hasImage: true }); // Se hace una solicitud al servidor para registrar al usuario
+    if (register) return navigate("/login"); // Si la solicitud es exitosa, se redirige al usuario a la página de inicio de sesión
   };
 
   return (
