@@ -3,6 +3,8 @@ import useServer from "../hooks/useServer.js";
 import useAuth from "../hooks/useAuth.js";
 import { useEffect } from "react";
 
+import styles from "../styles/Login.module.css";
+
 function Login() {
   const { post, get } = useServer(); // obtiene la función 'post' y 'get' del hook personalizado 'useServer'
   const { token } = useAuth() // obtiene el token de autenticación del hook personalizado 'useAuth'
@@ -26,6 +28,7 @@ function Login() {
   return (
     <>
     <form onSubmit={handleSubmit}>
+      
       <div>
         <div>
           <label htmlFor="email">Email</label>
