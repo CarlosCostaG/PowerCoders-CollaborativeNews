@@ -40,10 +40,15 @@ li {
   }
   
   a {
-    color: #ab0d84;
+    color: #010212;
     text-decoration: none;
+<<<<<<< HEAD
     display: block;
   }
+=======
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      }
+>>>>>>> ce2aaba4753158c676c3ba03aeb133eee86f172e
   
   a:hover {
     text-decoration: underline;
