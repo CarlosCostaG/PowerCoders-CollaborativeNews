@@ -1,4 +1,7 @@
 import { NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
+import useServer from "../hooks/useServer";
+import { apiURL } from "../config";
 
 // Custom Hooks
 import useAuth from "../hooks/useAuth";
@@ -8,7 +11,24 @@ import styles from "../styles/Navbar.module.css";
 
 function Navbar() {
   // Obtener estado de autenticación y función para cerrar sesión usando nuestro custom hook
+  const {get} = useServer()
   const { isAuthenticated, logout } = useAuth();
+  const [profile, setProfile] = useState(null);
+
+  const getProfile = async () => {
+    const response = await get({ url: "/profile" })
+    setProfile(response.data.data)
+    console.log(response.data)
+    // setProfile(response);
+  };
+
+  useEffect(() => {
+    getProfile();
+  }, []);
+
+  if (!profile) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <nav className="navbar">
@@ -32,6 +52,13 @@ function Navbar() {
       ) : (
         <NavLink to="/login" className={styles.mainNav__a}>
           Inicio Sesión
+        </NavLink>
+      )}
+
+      {isAuthenticated && (
+        <NavLink to="/profile" className={styles.mainNav__a}>
+          <img className={styles.navAvatar} src={`${apiURL}/avatars/${profile.avatar}`}/>
+          Perfil   
         </NavLink>
       )}
     </nav>

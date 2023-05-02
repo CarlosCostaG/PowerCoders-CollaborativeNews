@@ -7,6 +7,7 @@ li {
     border-radius: 10px;
     margin-left: 25%;
     margin-right: 25%;
+    text-align: center;
   }
   
   /* li:hover {
@@ -16,6 +17,8 @@ li {
   img {
    width: 80%;
    text-align: center;
+   vertical-align: middle; /* Centrar verticalmente la imagen */
+   max-width: 100%; /* Ajustar el tamaño máximo de la imagen al ancho del contenedor */
   }
 
   li p {
@@ -39,6 +42,7 @@ li {
   a {
     color: #ab0d84;
     text-decoration: none;
+    display: block;
   }
   
   a:hover {

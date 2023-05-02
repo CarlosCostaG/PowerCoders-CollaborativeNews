@@ -41,47 +41,50 @@ function RedditForm() {
           <input type="file" name="photo" id="photo" />{" "}
           {/* campo para seleccionar una imagen */}
         </div>
-        <label htmlFor="theme">
-          {" "}
-          {/* etiqueta para el campo de tema */}
-          <input type="radio" value="sports" name="theme" />
-          Deportes
-        </label>
-        <label htmlFor="theme">
-          <input type="radio" value="politics" name="theme" />
-          Política
-        </label>
-        <label htmlFor="theme">
-          <input type="radio" value="economy" name="theme" />
-          Economía
-        </label>
-        <label htmlFor="theme">
-          <input type="radio" value="education" name="theme" />
-          Educación
-        </label>
-        <label htmlFor="theme">
-          <input type="radio" value="society" name="theme" />
-          Sociedad
-        </label>
-        <label htmlFor="theme">
-          <input type="radio" value="technology" name="theme" />
-          Tecnología
-        </label>
-        <label htmlFor="theme">
-          <input type="radio" value="culture" name="theme" />
-          Cultura
-        </label>
-        <label htmlFor="theme">
-          <input type="radio" value="science" name="theme" />
-          Ciencia
-        </label>
-        <label htmlFor="theme">
-          <input type="radio" value="gaming" name="theme" />
-          Videojuegos
-        </label>
-        <label htmlFor="theme">
-          <input type="radio" value="medicine" name="theme" />
-          Medicina
+
+        <label className="themes" htmlFor="theme">
+          <div className="container">
+            <div>
+              <input type="radio" value="sports" name="theme" id="theme-sports" />
+              <label htmlFor="theme-sports">Deportes</label>
+            </div>
+            <div>
+              <input type="radio" value="politics" name="theme" id="theme-politics" />
+              <label htmlFor="theme-politics">Política</label>
+            </div>
+            <div>
+              <input type="radio" value="economy" name="theme" id="theme-economy" />
+              <label htmlFor="theme-economy">Economía</label>
+            </div>
+            <div>
+              <input type="radio" value="education" name="theme" id="theme-education" />
+              <label htmlFor="theme-education">Educación</label>
+            </div>
+            <div>
+              <input type="radio" value="society" name="theme" id="theme-society" />
+              <label htmlFor="theme-society">Sociedad</label>
+            </div>
+            <div>
+              <input type="radio" value="technology" name="theme" id="theme-technology" />
+              <label htmlFor="theme-technology">Tecnología</label>
+            </div>
+            <div>
+              <input type="radio" value="culture" name="theme" id="theme-culture" />
+              <label htmlFor="theme-culture">Cultura</label>
+            </div>
+            <div>
+              <input type="radio" value="science" name="theme" id="theme-science" />
+              <label htmlFor="theme-science">Ciencia</label>
+            </div>
+            <div>
+              <input type="radio" value="gaming" name="theme" id="theme-gaming" />
+              <label htmlFor="theme-gaming">Videojuegos</label>
+            </div>
+            <div>
+              <input type="radio" value="medicine" name="theme" id="theme-medicine" />
+              <label htmlFor="theme-medicine">Medicina</label>
+            </div>
+          </div>
         </label>
         <button type="submit">Publicar</button>
       </form>
