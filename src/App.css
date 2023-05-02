@@ -5,3 +5,11 @@
   align-items: center;
   margin-right: 20px;
 }
+
+.avatars {
+  width: 10%;
+  display: block;
+  justify-content: flex-end;
+  align-items: center;
+  margin-left: auto;
+}
