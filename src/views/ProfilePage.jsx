@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
+import useAuth from "../hooks/useAuth";
 
 
-const Profile = () => {
-  const [user, setUser] = useState({});
+const ProfilePage = () => {
+  const [user, setUser] = useAuth({});
   
 
-  useEffect(() => {
+  useAuth(() => {
     // Obtener el token de autenticación de las cookies
-    const token = document.cookie.split(";").find((cookie) => cookie.startsWith("token="));
 
     fetch("/profile", {
       headers: {
-        Authorization: `Bearer ${token.split("=")[1]}`, // Enviar el token en el encabezado de autorización
+        Authenticated: `Bearer ${token.split("=")[1]}`, // Enviar el token en el encabezado de autorización
       },
     })
       .then((res) => res.json())
@@ -34,4 +34,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default ProfilePage

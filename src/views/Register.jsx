@@ -1,5 +1,16 @@
 import { useNavigate } from "react-router-dom";
 import useServer from "../hooks/useServer.js";
+import React from 'react';
+import {
+  MDBBtn,
+  MDBContainer,
+  MDBCard,
+  MDBCardBody,
+  MDBCol,
+  MDBRow,
+  MDBInput,
+}
+from 'mdb-react-ui-kit';
 
 function Register() {
   const { post } = useServer();  // Se utiliza el hook useServer para hacer solicitudes al servidor
@@ -15,54 +26,38 @@ function Register() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div>
-        <div>
-          <label htmlFor="username">Username</label>
-          <input
-            id="username"
-            name="username"
-            type="text"
-            autoComplete="username"
-            required
-            placeholder="@me"
-          />
-        </div>
 
-        <div>
-          <label htmlFor="email">Email</label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            autoComplete="email"
-            required
-            placeholder="john@doe.com"
-          />
-        </div>
+   <MDBContainer fluid>
 
-        <div>
-          <label htmlFor="password">Password</label>
-          <input
-            id="password"
-            name="password"
-            type="password"
-            autoComplete="password"
-            required
-            placeholder="123456"
-          />
-        </div>
+<div className="p-5 bg-image" style={{backgroundImage: 'url(https://mdbootstrap.com/img/new/textures/full/171.jpg)', height: '300px'}}></div>
 
-        <div>
-            <label htmlFor="avatar">Avatar</label>
-            <input type="file" name="avatar" id="avatar" />
-        </div>
+<MDBCard className='mx-5 mb-5 p-5 shadow-5' style={{marginTop: '-100px', background: 'hsla(0, 0%, 100%, 0.8)', backdropFilter: 'blur(30px)'}}>
+  <MDBCardBody className='p-5 text-center'>
+
+    <h2 className="fw-bold mb-5">Regístrate ahora</h2>
+
+    <MDBRow>
+      <MDBCol col='6'>
+        <MDBInput wrapperClass='mb-4' name="username" label='username' id='username' type='text'/>
+      </MDBCol>
+    </MDBRow>
+
+    <MDBInput wrapperClass='mb-4' name="email" label='email' id='email' type='email'/>
+    <MDBInput wrapperClass='mb-4' name="password" label='Password' id='password' type='password'/>
+      <div className="text-center">
+        <label htmlFor="avatar">Avatar</label>
+        <input type="file" name="avatar" id="avatar" />
       </div>
+    <MDBBtn type="submit" className='w-100 mb-4' size='md'>Crear Cuenta</MDBBtn>
 
-      <div>
-        <button type="submit"> Iniciar Sesión </button>
-      </div>
-    </form>
-  );
+
+  </MDBCardBody>
+</MDBCard>
+
+</MDBContainer>
+  
+</form>
+);
 }
 
 export default Register;
