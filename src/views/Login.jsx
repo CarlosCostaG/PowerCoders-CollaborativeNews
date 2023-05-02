@@ -16,6 +16,10 @@ import useServer from "../hooks/useServer.js";
 import useAuth from "../hooks/useAuth.js";
 import { useEffect } from "react";
 
+<<<<<<< HEAD
+=======
+import styles from "../styles/Login.module.css";
+>>>>>>> f65ec443adec2a6a0f2eee00da8cf887c2dd0dfe
 
 function Login() {
   const { post, get } = useServer(); // obtiene la función 'post' y 'get' del hook personalizado 'useServer'
@@ -41,6 +45,7 @@ function Login() {
   return (
     <>
     <form onSubmit={handleSubmit}>
+<<<<<<< HEAD
     <MDBContainer >
 
       <MDBRow className='d-flex justify-content-center align-items-center h-100'>
@@ -54,6 +59,39 @@ function Login() {
       
               <h2 className="fw-bold mb-2 text-uppercase">Inicio</h2>
               <p className="text-white-50 mb-5">¡Por favor, introduce tu usuario y contraseña!</p>
+=======
+      
+      <div>
+        <div>
+          <label htmlFor="email">Email</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            autoComplete="email"
+            required
+            placeholder="john@doe.com"
+          />
+        </div>
+
+        <div>
+          <label htmlFor="password">Password</label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            autoComplete="password"
+            required
+            placeholder="123456"
+          />
+        </div>
+      </div>
+
+      <div>
+        <button type="submit"> Iniciar Sesión </button>
+      </div>
+    </form>
+>>>>>>> f65ec443adec2a6a0f2eee00da8cf887c2dd0dfe
 
   
               <MDBInput wrapperClass='mb-4 mx-5 w-100' name="email" labelClass='text-white' label='Email address' id='email' type='email' size="lg"/>

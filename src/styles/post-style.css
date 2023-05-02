@@ -37,9 +37,10 @@ li {
   }
   
   a {
-    color: #ab0d84;
+    color: #010212;
     text-decoration: none;
-  }
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      }
   
   a:hover {
     text-decoration: underline;
