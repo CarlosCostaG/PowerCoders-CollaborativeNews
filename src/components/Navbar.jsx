@@ -23,6 +23,11 @@ function Navbar() {
           Publicar
         </NavLink>
       )}
+      {isAuthenticated && (
+        <NavLink to="/profile" className={styles.mainNav__a}>
+          Perfil
+        </NavLink>
+      )}
 
       {/* Si el usuario está autenticado, mostrar enlace para cerrar sesión, de lo contrario mostrar enlace para iniciar sesión */}
       {isAuthenticated ? (

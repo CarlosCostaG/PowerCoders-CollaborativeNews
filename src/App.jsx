@@ -10,6 +10,7 @@ import "./style.css";
 import useAuth from "./hooks/useAuth";
 import RedditForm from "./components/send";
 import Notifications from "./components/Notifications"
+import ProfilePage from "./views/ProfilePage"
 
 function App() {
   const { isAuthenticated, user } = useAuth();
@@ -32,6 +33,7 @@ function App() {
         {/* Rutas privadas */}
         <Route element={<PrivateRoutes />}> {/* Rutas accesibles solo para usuarios autenticados */}
           <Route path="/send" element={<RedditForm />} /> {/* Ruta para enviar una publicación */}
+          <Route path="/profile" component={<ProfilePage />} /> {/*Ruta a la página del perfil del usuario*/}
 
         </Route>
       </Routes>
