@@ -7,6 +7,7 @@ li {
     border-radius: 10px;
     margin-left: 25%;
     margin-right: 25%;
+    text-align: center;
   }
   
   /* li:hover {
@@ -16,6 +17,8 @@ li {
   img {
    width: 80%;
    text-align: center;
+   vertical-align: middle; /* Centrar verticalmente la imagen */
+   max-width: 100%; /* Ajustar el tamaño máximo de la imagen al ancho del contenedor */
   }
 
   li p {
@@ -39,8 +42,13 @@ li {
   a {
     color: #010212;
     text-decoration: none;
+<<<<<<< HEAD
+    display: block;
+  }
+=======
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
       }
+>>>>>>> ce2aaba4753158c676c3ba03aeb133eee86f172e
   
   a:hover {
     text-decoration: underline;

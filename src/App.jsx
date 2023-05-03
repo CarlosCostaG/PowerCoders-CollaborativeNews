@@ -10,7 +10,8 @@ import "./style.css";
 import useAuth from "./hooks/useAuth";
 import RedditForm from "./components/send";
 import Notifications from "./components/Notifications"
-import ProfilePage from "./views/ProfilePage"
+import ProfileView from "./views/Profile";
+import ProfilePage from "./views/ProfilePage";
 
 function App() {
   const { isAuthenticated, user } = useAuth();
@@ -20,7 +21,6 @@ function App() {
       <Notifications/>
 
       <h1 className="tittle">InsightHub</h1>
-      {/* <div>{JSON.stringify({ isAuthenticated })}</div> */}
 
       {/* {isAuthenticated && <img className="avatar" src={`https://noticias.backends.hackaboss.com/avatars/${user.avatar}`}/>} */}
 
@@ -33,7 +33,8 @@ function App() {
         {/* Rutas privadas */}
         <Route element={<PrivateRoutes />}> {/* Rutas accesibles solo para usuarios autenticados */}
           <Route path="/send" element={<RedditForm />} /> {/* Ruta para enviar una publicación */}
-          <Route path="/profile" element={<ProfilePage />} /> {/*Ruta a la página del perfil del usuario*/}
+          <Route path="/profile" element={<ProfileView/>}/>
+          {/* <Route path="/profile" element={<ProfilePage />} /> Ruta a la página del perfil del usuario */}
 
         </Route>
       </Routes>

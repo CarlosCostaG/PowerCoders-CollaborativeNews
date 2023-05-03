@@ -15,9 +15,26 @@
 }
 
 .mainNav__a:hover {
+<<<<<<< HEAD
+  background-color: #555;
+  color: orangered;
+=======
   background-color: #7b7575;
+>>>>>>> ce2aaba4753158c676c3ba03aeb133eee86f172e
 }
 
 .active {
   background-color: #555;
+<<<<<<< HEAD
+}
+
+.navAvatar {
+  width: 10%;
+  display: block;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 20px;
+}
+=======
 } */
+>>>>>>> ce2aaba4753158c676c3ba03aeb133eee86f172e

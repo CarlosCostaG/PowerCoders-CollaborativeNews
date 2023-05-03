@@ -4,7 +4,7 @@ import { apiURL } from "../config";
 import useServer from "../hooks/useServer";
 import { useState } from "react";
 
-function Posts({ post, deletePost, likePost, dislikePost }) {
+function Posts({ post, deletePost, likePost, dislikePost, editHandleSubmit }) {
   const { patch } = useServer(); // Importa la función 'patch' del custom hook 'useServer'
   const [editing, setEditing] = useState(false); // Crea el estado 'editing' y la función 'setEditing' para controlar si se está editando el post
   const [editedTitle, setEditedTitle] = useState(post.title); // Crea el estado 'editedTitle' y la función 'setEditedTitle' para controlar el título editado del post
@@ -37,13 +37,9 @@ function Posts({ post, deletePost, likePost, dislikePost }) {
   // Función para manejar el submit del formulario de edición
   const handleEditSubmit = async (e) => {
     e.preventDefault(); // Previenen la acción por defecto del formulario
-    const formData = new FormData(e.target); // Crea un nuevo objeto FormData con los datos del formulario
-    const response = await patch({
-      url: `/news/${post.id}`,
-      body: formData,
-      hasImage: true,
-    }); // Envía los datos del formulario al servidor para actualizar el post
-    setEditing(false); // Desactiva el modo edición
+    
+    const {id} = await editHandleSubmit(e, post.id)
+    if (id) setEditing(false); // Desactiva el modo edición
   };
 
   // Función para manejar el click del botón "Cancelar"
@@ -90,6 +86,7 @@ function Posts({ post, deletePost, likePost, dislikePost }) {
               value={editedTheme}
               onChange={handleEditedThemeChange}
             />
+            <input type="file" name="photo" id="" />
             <button type="submit">Guardar cambios</button>
             <button type="button" onClick={handleEditCancel}>
               Cancelar
