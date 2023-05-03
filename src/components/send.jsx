@@ -43,7 +43,7 @@ function RedditForm() {
         </div>
 
         <label className="themes" htmlFor="theme">
-          <div className="container">
+          <div className="container1">
             <div>
               <input type="radio" value="sports" name="theme" id="theme-sports" />
               <label htmlFor="theme-sports">Deportes</label>

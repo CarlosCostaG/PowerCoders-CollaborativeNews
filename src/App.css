@@ -1,28 +1,17 @@
 .avatar {
-  width: 20%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  margin-right: 20px;
-}
-<<<<<<< HEAD
-.gradient-custom {
-  /* fallback for old browsers */
-  background: #f6d365;
-
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1));
-
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1))
-}
-=======
-
-.avatars {
   width: 10%;
-  display: block;
-  justify-content: flex-end;
+  display: flex;
+  /* justify-content: flex-end; */
   align-items: center;
-  margin-left: auto;
+  margin: 30px;
+  border-radius: 50%;
+  padding: 10px;
 }
->>>>>>> c71c9a9a7909562480539ac019a7f17a4766eb1f
+
+.info {
+  margin: 1%;
+}
+
+.tituloP {
+  margin: 2%;
+}

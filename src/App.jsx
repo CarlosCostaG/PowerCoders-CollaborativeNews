@@ -11,7 +11,7 @@ import useAuth from "./hooks/useAuth";
 import RedditForm from "./components/send";
 import Notifications from "./components/Notifications"
 import ProfileView from "./views/Profile";
-import ProfilePage from "./views/ProfilePage";
+// import ProfilePage from "./views/ProfilePage";
 
 function App() {
   const { isAuthenticated, user } = useAuth();
@@ -20,7 +20,6 @@ function App() {
       <Navbar />
       <Notifications/>
 
-      <h1 className="tittle">InsightHub</h1>
 
       {/* {isAuthenticated && <img className="avatar" src={`https://noticias.backends.hackaboss.com/avatars/${user.avatar}`}/>} */}
 

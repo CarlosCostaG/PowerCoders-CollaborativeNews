@@ -61,13 +61,13 @@ function ProfileView() {
 
   return (
     <div>
-      <h1>Perfil de usuario</h1>
+      <h1 className="tituloP">Perfil de usuario</h1>
       <img className="avatar" src={`${apiURL}/avatars/${profile.avatar}`}/>
-      <p>Nombre de usuario: {profile.username}</p>
-      <p>Email: {profile.email}</p>
+      <p className="info">Nombre de usuario: {profile.username}</p>
+      <p className="info">Email: {profile.email}</p>
 
       <div>
-      <h2>Tus posts</h2>
+      <h2 className="info">Tus posts</h2>
       {userPosts.map((post) => (
       <UserPost key={post.id} post={post} likePost={likePostHandler} dislikePost={dislikePostHandler} deletePost={deletePostHandler}/>
       ))}

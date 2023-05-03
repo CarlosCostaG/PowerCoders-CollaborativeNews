@@ -60,6 +60,8 @@ function Homepage() {
 
   return (
     <>
+          <h1 className="tittle">Últimas Noticias</h1>
+
       {posts && (
         <ul>
           {posts.map((post) => (

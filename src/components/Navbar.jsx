@@ -15,19 +15,19 @@ function NavBar() {
   const getProfile = async () => {
     const response = await get({ url: "/profile" })
     setProfile(response.data.data)
-    // setProfile(response);
+    setProfile(response);
   };
 
   useEffect(() => {
     getProfile();
   }, []);
 
-  if (profile === null) {
+  if (profile) {
     return (
       <>
         <Navbar bg="dark" variant="dark">
           <Container>
-            <Navbar.Brand to="#home"></Navbar.Brand>
+            <Navbar.Brand to="#logo">InsightHub</Navbar.Brand>
             <Nav>
             {/* Enlace a la página de inicio */}
             <NavLink to="/">
@@ -86,7 +86,7 @@ function NavBar() {
             {isAuthenticated && (
               <NavLink to="/profile">
               Perfil
-              <img className='avatars' src={`${apiURL}/avatars/${profile.avatar}`}/>  
+              <img src={`${apiURL}/avatars/${profile.avatar}`} style={{width: "8%"}}/>  
               </NavLink>
             )}
       

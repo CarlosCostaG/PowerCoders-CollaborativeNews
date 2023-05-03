@@ -24,7 +24,7 @@
   background-repeat: repeat;
 }
 
-.container {
+.container1 {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(2, auto);
@@ -58,7 +58,7 @@
     text-transform: uppercase;
     transition: background-color 0.3s ease-in-out; /* Nuevo estilo de transición para el botón */
   
-    &:hover {
+    & : hover {
       background-color: #e63b00; /* Nuevo color de fondo cuando el botón está en estado de hover */
     }
   }
