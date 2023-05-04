@@ -12,13 +12,11 @@ function RedditForm() {
     e.preventDefault(); // evita que la página se recargue al enviar el formulario
 
     const formPost = new FormData(e.target); // crea un nuevo objeto FormData a partir del formulario enviado
-    console.log(formPost); // muestra en la consola el contenido del objeto FormData
     const response = await post({
       url: "/news",
       body: formPost,
       hasImage: true,
     }); // envía la publicación al servidor utilizando la función post obtenida con el hook useServer
-    console.log(response); // muestra en la consola la respuesta del servidor
     if (response) return navigate("/"); // si la respuesta del servidor es exitosa, redirige al usuario a la página principal
   };
 
@@ -36,7 +34,7 @@ function RedditForm() {
         <textarea id="content" name="content" />{" "}
         {/* campo de entrada de texto para el contenido */}
         <div>
-          <label htmlFor="photo">Inserta lo que te pegue la gana :v</label>{" "}
+          <label htmlFor="photo">Puedes insertar una foto! (😊):</label>{" "}
           {/* etiqueta para el campo de imagen */}
           <input type="file" name="photo" id="photo" />{" "}
           {/* campo para seleccionar una imagen */}

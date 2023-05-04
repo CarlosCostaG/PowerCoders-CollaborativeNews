@@ -6,37 +6,40 @@ import UserPost from "../components/SpecificPostUser.jsx";
 import PostHandler from "../helpers/PostHandlers.js";
 
 function ProfileView() {
-  const { get, post } = useServer();
+  const { likePost, dislikePost, deletePost } = PostHandler();
+  const { get } = useServer();
   const [profile, setProfile] = useState(null);
   const [userPosts, setUserPosts] = useState(null);
-  const { likePost } = PostHandler()
 
-    // Codigo de like y dislike
-    const likePostHandler = async (id) => {
-      // Lógica para aumentar el contador de likes
-      const { data: {data} } = await likePost(id);
-      const postIndex = userPosts.findIndex(post => post.id === id);
-      userPosts[postIndex] = data;
-    };
+  // Funciones para manejar los clicks en los botones de like/dislike/delete y editar post
+  const likePostHandler = async (id) => {
+    const {
+      data: { data },
+    } = await likePost(id);
+    setUserPosts((prevPosts) =>
+      prevPosts.map((post) => (post.id === id ? data : post))
+    );
+  };
 
-    const dislikePostHandler = async (id, dislikes) => {
-      // Lógica para aumentar el contador de dislikes
-      const response = await post({ url: `/news/dislike/${id}` });
-    };
-    // Codigo de like y dislike
-  
-    const deletePostHandler = async (id) => {
-      const { data } = await destroy({ url: `/news/${id}` });
-      if (data.status === "ok") {
-        const newList = posts.filter((post) => post.id !== id);
-        setPosts(newList);
-      }
-    };
+  const dislikePostHandler = async (id) => {
+    const {
+      data: { data },
+    } = await dislikePost(id);
+    setUserPosts((prevPosts) =>
+      prevPosts.map((post) => (post.id === id ? data : post))
+    );
+  };
+
+  const deletePostHandler = async (id) => {
+    const { data } = await deletePost(id);
+    if (data.status === "ok") {
+      setUserPosts((prevPosts) => prevPosts.filter((post) => post.id !== id));
+    }
+  };
 
   const getProfile = async () => {
     const response = await get({ url: "/profile" });
     setProfile(response.data.data);
-    console.log(response.data);
   };
 
   const getUserPosts = async () => {

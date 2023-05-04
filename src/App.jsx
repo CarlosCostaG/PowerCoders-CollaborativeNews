@@ -8,7 +8,7 @@ import Login from "./views/Login";
 import Register from './views/Register'
 import "./style.css";
 import useAuth from "./hooks/useAuth";
-import RedditForm from "./components/send";
+import RedditForm from "./components/PublishPost";
 import Notifications from "./components/Notifications"
 import ProfileView from "./views/Profile";
 // import ProfilePage from "./views/ProfilePage";
