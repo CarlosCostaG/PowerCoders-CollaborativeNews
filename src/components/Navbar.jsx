@@ -33,11 +33,11 @@ function NavBar() {
           {isAuthenticated && profile && (
             <NavLink to="/profile">
               Perfil
-              <img
+              {/* <img
                 src={`${apiURL}/avatars/${profile.avatar}`}
                 style={{ width: "8%" }}
                 alt="avatar"
-              />
+              /> */}
             </NavLink>
           )}
 

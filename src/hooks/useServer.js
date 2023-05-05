@@ -8,7 +8,7 @@ function useServer() {
   // Función que maneja la respuesta del servidor
   const handleResponse = ({ data, loading, error }) => {
     // Si hay datos del usuario en la respuesta, actualiza el usuario
-    if (data.data?.id) {
+    if (data.data?.id && data?.data?.username) {
       setUser({ user: data.data });
     }
 

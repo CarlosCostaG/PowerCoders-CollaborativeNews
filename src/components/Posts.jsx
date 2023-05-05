@@ -3,6 +3,8 @@ import "../styles/post-style.css";
 import { apiURL } from "../config";
 import useServer from "../hooks/useServer";
 import { useState } from "react";
+import useAuth from "../hooks/useAuth";
+
 
 function Posts({ post, deletePost, likePost, dislikePost, editHandleSubmit }) {
   const { patch } = useServer(); // Importa la función 'patch' del custom hook 'useServer'
@@ -10,6 +12,7 @@ function Posts({ post, deletePost, likePost, dislikePost, editHandleSubmit }) {
   const [editedTitle, setEditedTitle] = useState(post.title); // Crea el estado 'editedTitle' y la función 'setEditedTitle' para controlar el título editado del post
   const [editedContent, setEditedContent] = useState(post.content); // Crea el estado 'editedContent' y la función 'setEditedContent' para controlar el contenido editado del post
   const [editedTheme, setEditedTheme] = useState(post.theme); // Crea el estado 'editedTheme' y la función 'setEditedTheme' para controlar el tema editado del post
+  const { user } = useAuth()
 
   // Función para manejar el click del botón "Eliminar post"
   const deleteButtonHandler = (e) => {
@@ -113,12 +116,14 @@ function Posts({ post, deletePost, likePost, dislikePost, editHandleSubmit }) {
             <i className="fas fa-arrow-down"></i>
             <span>{post.dislikes}</span>
           </button>
+          {user.id === post.ownerId &&
           <button className="edit-button" onClick={handleEditClick}>
             Editar
-          </button>
+          </button>}
+          {user.id === post.ownerId && 
           <button className="delete-button" onClick={deleteButtonHandler}>
             Eliminar post
-          </button>
+          </button>}
         </div>
       </div>
     </li>
