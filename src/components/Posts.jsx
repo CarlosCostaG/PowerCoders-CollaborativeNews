@@ -1,18 +1,15 @@
 import { Link } from "react-router-dom";
 import "../styles/post-style.css";
 import { apiURL } from "../config";
-import useServer from "../hooks/useServer";
 import { useState } from "react";
 import useAuth from "../hooks/useAuth";
 
-
 function Posts({ post, deletePost, likePost, dislikePost, editHandleSubmit }) {
-  const { patch } = useServer(); // Importa la función 'patch' del custom hook 'useServer'
   const [editing, setEditing] = useState(false); // Crea el estado 'editing' y la función 'setEditing' para controlar si se está editando el post
   const [editedTitle, setEditedTitle] = useState(post.title); // Crea el estado 'editedTitle' y la función 'setEditedTitle' para controlar el título editado del post
   const [editedContent, setEditedContent] = useState(post.content); // Crea el estado 'editedContent' y la función 'setEditedContent' para controlar el contenido editado del post
   const [editedTheme, setEditedTheme] = useState(post.theme); // Crea el estado 'editedTheme' y la función 'setEditedTheme' para controlar el tema editado del post
-  const { user } = useAuth()
+  const { user } = useAuth();
 
   // Función para manejar el click del botón "Eliminar post"
   const deleteButtonHandler = (e) => {
@@ -40,8 +37,8 @@ function Posts({ post, deletePost, likePost, dislikePost, editHandleSubmit }) {
   // Función para manejar el submit del formulario de edición
   const handleEditSubmit = async (e) => {
     e.preventDefault(); // Previenen la acción por defecto del formulario
-    
-    const {id} = await editHandleSubmit(e, post.id)
+
+    const { id } = await editHandleSubmit(e, post.id);
     if (id) setEditing(false); // Desactiva el modo edición
   };
 
@@ -116,14 +113,16 @@ function Posts({ post, deletePost, likePost, dislikePost, editHandleSubmit }) {
             <i className="fas fa-arrow-down"></i>
             <span>{post.dislikes}</span>
           </button>
-          {user.id === post.ownerId &&
-          <button className="edit-button" onClick={handleEditClick}>
-            Editar
-          </button>}
-          {user.id === post.ownerId && 
-          <button className="delete-button" onClick={deleteButtonHandler}>
-            Eliminar post
-          </button>}
+          {user && user.id === post.ownerId && (
+            <button className="edit-button" onClick={handleEditClick}>
+              Editar
+            </button>
+          )}
+          {user && user.id === post.ownerId && (
+            <button className="delete-button" onClick={deleteButtonHandler}>
+              Eliminar post
+            </button>
+          )}
         </div>
       </div>
     </li>

@@ -22,7 +22,6 @@ function Login() {
   const handleSubmit = async (e) => { // función que se ejecuta cuando se envía el formulario
     e.preventDefault();
     const credentials = Object.fromEntries(new FormData(e.target)); // obtiene los valores del formulario y los convierte en un objeto
-    console.log(credentials)
     await post({ url: "/login", body: credentials }); // hace una petición POST a la URL '/login' con las credenciales como cuerpo
   };
   useEffect(() => {
