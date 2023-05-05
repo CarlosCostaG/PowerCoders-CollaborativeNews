@@ -21,8 +21,6 @@ function App() {
       <Notifications/>
 
 
-      {/* {isAuthenticated && <img className="avatar" src={`https://noticias.backends.hackaboss.com/avatars/${user.avatar}`}/>} */}
-
       <Routes className="routes">
         {/* Rutas públicas */}
         <Route path="/" element={<Homepage />} /> {/* Ruta de la página principal */}
@@ -31,7 +29,7 @@ function App() {
 
         {/* Rutas privadas */}
         <Route element={<PrivateRoutes />}> {/* Rutas accesibles solo para usuarios autenticados */}
-          <Route path="/send" element={<RedditForm />} /> {/* Ruta para enviar una publicación */}
+          <Route path="/publish-post" element={<RedditForm />} /> {/* Ruta para enviar una publicación */}
           <Route path="/profile" element={<ProfileView/>}/>
           {/* <Route path="/profile" element={<ProfilePage />} /> Ruta a la página del perfil del usuario */}
 

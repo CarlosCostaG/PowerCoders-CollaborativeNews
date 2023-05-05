@@ -14,7 +14,7 @@ function NavBar() {
           <NavLink to="/">Inicio</NavLink>
 
           {isAuthenticated && (
-            <NavLink to="/send">Publicar</NavLink>
+            <NavLink to="/publish-post">Publicar</NavLink>
           )}
 
           {isAuthenticated && (
