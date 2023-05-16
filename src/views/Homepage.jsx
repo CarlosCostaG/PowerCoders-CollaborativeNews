@@ -3,9 +3,13 @@ import { useEffect, useState } from "react";
 import useServer from "../hooks/useServer.js";
 import Posts from "../components/Posts.jsx";
 import PostHandler from "../helpers/PostHandlers.js";
+import useAuth from "../hooks/useAuth.js";
+import { toast } from 'react-toastify';
 
 // Creamos el componente Homepage
 function Homepage() {
+  const { isAuthenticated } = useAuth();
+
   // Creamos las constantes y estados necesarios
   const { likePost, dislikePost, deletePost } = PostHandler();
   const { patch, get } = useServer();
@@ -44,22 +48,37 @@ function Homepage() {
 
   // Funciones para manejar los clicks en los botones de like/dislike/delete y editar post
   const likePostHandler = async (id) => {
-    const {
-      data: { data },
-    } = await likePost(id);
-    setPosts((prevPosts) =>
-      prevPosts.map((post) => (post.id === id ? data : post))
-    );
-  };
+    if (isAuthenticated) {
+      try {
+        const {
+          data: { data },
+        } = await likePost(id);
+        setPosts((prevPosts) =>
+          prevPosts.map((post) => (post.id === id ? data : post))
+        );
+      } catch (error) {
+        toast.error('Error al dar like al post');
+      } 
+    } else {
+    toast.error('Debes iniciar sesión para dar like');
+  }};
 
   const dislikePostHandler = async (id) => {
-    const {
-      data: { data },
-    } = await dislikePost(id);
-    setPosts((prevPosts) =>
-      prevPosts.map((post) => (post.id === id ? data : post))
-    );
-  };
+    if (isAuthenticated) {
+      try {
+        const {
+          data: { data },
+        } = await dislikePost(id);
+        setPosts((prevPosts) =>
+          prevPosts.map((post) => (post.id === id ? data : post))
+        );
+      } catch (error) {
+        toast.error('Error al dar dislike al post');
+      }
+  } else {
+    toast.error('Debes iniciar sesión para dar dislike');
+  }
+};
 
   const deletePostHandler = async (id) => {
     const { data } = await deletePost(id);

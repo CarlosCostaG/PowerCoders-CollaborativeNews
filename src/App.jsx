@@ -7,19 +7,20 @@ import Homepage from "./views/Homepage";
 import Login from "./views/Login";
 import Register from './views/Register'
 import "./style.css";
-import useAuth from "./hooks/useAuth";
+// import useAuth from "./hooks/useAuth";
 import RedditForm from "./components/PublishPost";
-import Notifications from "./components/Notifications"
 import ProfileView from "./views/Profile";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 // import ProfilePage from "./views/ProfilePage";
 
 function App() {
-  const { isAuthenticated, user } = useAuth();
+  // const { isAuthenticated, user } = useAuth();
   return (
     <>
       <Navbar />
-      <Notifications/>
-
+      <ToastContainer /> {/* Agrega el ToastContainer aquí */}
 
       <Routes className="routes">
         {/* Rutas públicas */}

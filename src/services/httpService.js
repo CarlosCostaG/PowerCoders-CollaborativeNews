@@ -49,10 +49,10 @@ async function httpService({ url, method = "GET", token = null, body = null, has
     // if (!response.ok) throw new Error(data.error)
 
     // Devuelve un objeto con los datos, el estado de carga y cualquier error
-    return { data, loading: false, error: data.error || null };
+    return { data, url, loading: false, error: data.error || null };
   } catch (error) {
     // Devuelve un objeto con datos nulos, un estado de carga falso y cualquier error generado
-    return { data: null, loading: false, error };
+    return { data: null, loading: false, error, url };
   }
 }
 

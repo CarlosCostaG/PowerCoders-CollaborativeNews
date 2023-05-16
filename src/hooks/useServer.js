@@ -6,9 +6,9 @@ function useServer() {
   const { token, setUser } = useAuth();
 
   // Función que maneja la respuesta del servidor
-  const handleResponse = ({ data, loading, error }) => {
+  const handleResponse = ({ data, loading, error, url }) => {
     // Si hay datos del usuario en la respuesta, actualiza el usuario
-    if (data.data?.id && data?.data?.username) {
+    if (data?.data?.email && url === '/profile') {
       setUser({ user: data.data });
     }
 
