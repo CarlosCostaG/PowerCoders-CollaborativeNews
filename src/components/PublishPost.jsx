@@ -22,7 +22,7 @@ function RedditForm() {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="reddit-form">
+      <form className="reddit-form" onSubmit={handleSubmit}>
         {" "}
         {/* formulario que se envía al llamar a la función handleSubmit al hacer clic en el botón de enviar */}
         <label htmlFor="title">Título:</label>{" "}

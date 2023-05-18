@@ -100,26 +100,26 @@ function UserPost({post, likePost, dislikePost}) {
 
   return (
 
-        <div key={post.id}>
-          <h3>{post.title}</h3>
+        <div className="containerProfile" key={post.id}>
+          <h3 className="titleProfile">{post.title}</h3>
           <img src={`${apiURL}/photos/${post.photo}`} alt="" />
           <p>{post.content}</p>
           <p>{post.theme}</p>
 
           <div className="post-buttons">
           <button className="like-button" onClick={handleLikeClick}>
-            <i className="fas fa-arrow-up"></i>
+          <i class="bi bi-hand-thumbs-up"></i>
             <span>{post.likes}</span>
           </button>
           <button className="dislike-button" onClick={handleDislikeClick}>
-            <i className="fas fa-arrow-down"></i>
+          <i class="bi bi-hand-thumbs-down"></i>
             <span>{post.dislikes}</span>
           </button>
           <button className="edit-button" onClick={handleEditClick}>
-            Editar
+          <i class="bi bi-pencil-square"></i>
           </button>
           <button className="delete-button" onClick={deleteButtonHandler}>
-            Eliminar post
+          <i class="bi bi-trash3"></i>
           </button>
           </div>
         </div>

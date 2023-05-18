@@ -70,7 +70,7 @@ function ProfileView() {
       <p className="info">Nombre de usuario: {profile.username}</p>
       <p className="info">Email: {profile.email}</p>
 
-      <h2 className="infoo">Tus posts</h2>
+      <h2 className="infoo">Mis posts:</h2>
       <div className="post-profile">
       {userPosts.map((post) => (
       <UserPost key={post.id} post={post} likePost={likePostHandler} dislikePost={dislikePostHandler} deletePost={deletePostHandler}/>
