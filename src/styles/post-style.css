@@ -1,7 +1,7 @@
 li {
     display: flex;
     flex-direction: column;
-    border: 1px solid #d9d9d9;
+    border: 1px solid #101010;
     padding: 16px;
     margin-bottom: 16px;
     border-radius: 10px;
@@ -17,8 +17,10 @@ li {
   img {
    width: 80%;
    text-align: center;
-   /* vertical-align: middle; Centrar verticalmente la imagen 
-   max-width: 100%; Ajustar el tamaño máximo de la imagen al ancho del contenedor */
+   vertical-align: middle; 
+   /* Centrar verticalmente la imagen  */
+   max-width: 100%; 
+   /* Ajustar el tamaño máximo de la imagen al ancho del contenedor */
   }
 
   li p {
@@ -41,7 +43,6 @@ li {
   
   a {
     color: #010212;
-    text-decoration: none;
     /* display: block; */
   }
   
@@ -75,6 +76,7 @@ li {
     background-position: center;
     background-repeat: no-repeat;
     color: #0079d3;
+    align-items: center;
   }
   
   .delete-button {
@@ -82,6 +84,7 @@ li {
     background-position: center;
     background-repeat: no-repeat;
     color: #ff4500;
+    align-items: center;
   }
   
   .post-buttons i {

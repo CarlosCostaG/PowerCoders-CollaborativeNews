@@ -1,0 +1,18 @@
+.post-profile {
+  display: flex;
+    flex-direction: column;
+    border: 1px solid #d9d9d9;
+    padding: 16px;
+    margin-bottom: 16px;
+    border-radius: 10px;
+    margin-left: 25%;
+    margin-right: 25%;
+    text-align: center;
+}
+
+.infoo {
+  color: rgb(48, 34, 231);
+  text-align: center;
+  padding: 1px;
+}
+

@@ -9,7 +9,7 @@ function NavBar() {
   return (
     <Navbar bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand to="#logo">InsightHub</Navbar.Brand>
+        <Navbar.Brand className="logo" to="#logo">InsightHub</Navbar.Brand>
         <Nav>
           <NavLink to="/">Inicio</NavLink>
 

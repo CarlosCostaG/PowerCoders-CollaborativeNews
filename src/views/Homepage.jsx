@@ -109,12 +109,12 @@ function Homepage() {
       <div className="filters">
         {/* Botón para ordenar por likes */}
         <button onClick={handleSortByLikesClick}>
-          Ordenar por likes ({sortByLikes ? "menos a más" : "más a menos"})
+        <i class="bi bi-arrow-down-up"></i> ({sortByLikes ? "menos a más likes" : "más a menos likes"})
         </button>
 
         {/* Botón para ordenar por fecha */}
         <button onClick={handleSortByDateClick}>
-          Ordenar por fecha (
+        <i class="bi bi-arrow-down-up"></i> (
           {sortByNewestFirst
             ? "más reciente a más antigua"
             : "más antigua a más reciente"}

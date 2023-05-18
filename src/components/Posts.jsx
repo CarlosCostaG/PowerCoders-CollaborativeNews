@@ -106,21 +106,21 @@ function Posts({ post, deletePost, likePost, dislikePost, editHandleSubmit }) {
         <p>{post.theme}</p>
         <div className="post-buttons">
           <button className="like-button" onClick={handleLikeClick}>
-            <i className="fas fa-arrow-up"></i>
+          <i class="bi bi-hand-thumbs-up"></i>
             <span>{post.likes}</span>
           </button>
           <button className="dislike-button" onClick={handleDislikeClick}>
-            <i className="fas fa-arrow-down"></i>
+          <i class="bi bi-hand-thumbs-down"></i>
             <span>{post.dislikes}</span>
           </button>
           {user && user.id === post.ownerId && (
             <button className="edit-button" onClick={handleEditClick}>
-              Editar
+              <i class="bi bi-pencil-square"></i>
             </button>
           )}
           {user && user.id === post.ownerId && (
             <button className="delete-button" onClick={deleteButtonHandler}>
-              Eliminar post
+              <i class="bi bi-trash3"></i>
             </button>
           )}
         </div>

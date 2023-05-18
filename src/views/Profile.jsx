@@ -4,6 +4,7 @@ import { apiURL } from "../config.js";
 import useServer from "../hooks/useServer.js";
 import UserPost from "../components/SpecificPostUser.jsx";
 import PostHandler from "../helpers/PostHandlers.js";
+import Post from "../views/Profile.css";
 
 function ProfileView() {
   const { likePost, dislikePost, deletePost } = PostHandler();
@@ -69,8 +70,8 @@ function ProfileView() {
       <p className="info">Nombre de usuario: {profile.username}</p>
       <p className="info">Email: {profile.email}</p>
 
-      <div>
-      <h2 className="info">Tus posts</h2>
+      <h2 className="infoo">Tus posts</h2>
+      <div className="post-profile">
       {userPosts.map((post) => (
       <UserPost key={post.id} post={post} likePost={likePostHandler} dislikePost={dislikePostHandler} deletePost={deletePostHandler}/>
       ))}
